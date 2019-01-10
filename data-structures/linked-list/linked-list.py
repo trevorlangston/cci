@@ -14,7 +14,7 @@ class List:
         current = self.head
         while (current is not None):
             if current.next.val == val:
-                return current
+                return current.next
             current = current.next
 
     # O(n)
@@ -33,8 +33,9 @@ class List:
         self.tail = self.tail.next
 
     # O(1)
-    def remove(self, prev):
-        prev.next = prev.next.next
+    def remove(self, node):
+        node.val = node.next.val
+        node.next = node.next.next
 
     def reverse(self):
         self._reverse(self.head)
@@ -66,3 +67,6 @@ if __name__ == "__main__":
     ll.remove(ll.find(5))
     ll.reverse()
     ll.print_list()
+
+    for i in range(1, 10):
+        ll.remove(i)

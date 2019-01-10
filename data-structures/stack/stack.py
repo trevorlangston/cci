@@ -5,9 +5,15 @@ class Item:
         self.next = None
 
 
-class Stack:
+class Stack2:
     def __init__(self):
         self.top = None
+
+    def is_empty(self):
+        return self.top is None
+
+    def peak(self):
+        return self.top
 
     def push(self, val):
         new_item = Item(val)
@@ -27,9 +33,15 @@ class Stack:
 
 
 # abstraction on python list
-class Stack2:
+class Stack:
     def __init__(self):
         self.stack = []
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def peak(self):
+        return self.stack[-1]
 
     def push(self, val):
         self.stack.append(val)
@@ -41,6 +53,7 @@ class Stack2:
 
 
 if __name__ == "__main__":
+    print "python list implementation"
     st = Stack()
     for i in range(10):
         st.push(i)
@@ -48,6 +61,7 @@ if __name__ == "__main__":
     for i in range(10):
         print st.pop()
 
+    print "\nlinked list implementation"
     st2 = Stack()
     for i in range(10, 20):
         st2.push(i)
